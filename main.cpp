@@ -74,7 +74,7 @@ void menuInicial() {
             case 2:
                 p = carregarJogo();
                 if (p.founded == 0) {
-                    cout << "Jogador não encontrado!" << endl;
+                    cout << "Jogador nao encontrado!" << endl;
                 } else {
                     if (p.vida > 0) {
                         iniciarCenario(p);
@@ -87,7 +87,7 @@ void menuInicial() {
                 cout << "Saindo..." << endl;
                 break;
             default:
-                cout << "Opção inválida" << endl;
+                cout << "Opçao invalida" << endl;
                 break;
         }
     } while (escolha != 3);
@@ -110,7 +110,7 @@ Personagem novoJogo() {
 
     switch (escolhaClasse) {
         case 1: classe = "Guerreiro"; break;
-        case 2: classe = "Ladrão"; break;
+        case 2: classe = "Ladrao"; break;
         case 3: classe = "Cavaleiro"; break;
         case 4: classe = "Mago"; break;
         case 5: classe = "Arqueiro"; break;
@@ -151,7 +151,7 @@ Personagem criarPersonagem(const string& nome, const string& classe) {
         p.defesa = 10;
         p.level = 1;
     }
-    else if (classe == "Ladrão") {
+    else if (classe == "Ladrao") {
         p.vida = 70;
         p.defesa = 3;
         p.level = 1;
@@ -319,13 +319,13 @@ void definirAtaquesPorClasse(Personagem& p) {
         p.ataques["Investida frontal"] = 20;
         p.ataques["Corte vertical"] = 21;
         p.ataques["O X da Morte"] = 28;
-    } else if (p.classe == "Ladrão") {
+    } else if (p.classe == "Ladrao") {
         p.ataques["Roubo de vida"] = 20;
         p.ataques["Chuva de socos"] = 21;
         p.ataques["Chute colateral"] = 28;
     }
      else {
-        cout << "Classe desconhecida! Não ha ataques definidos." << endl;
+        cout << "Classe desconhecida! Nao ha ataques definidos." << endl;
     }
 }
 
