@@ -34,6 +34,7 @@ struct Monstro {
 };
 
 Personagem criarPersonagem(const string& nome, const string& classe);
+void definirAtaquesPorClasse(Personagem& p);
 
 int main() {
 
@@ -48,12 +49,13 @@ Personagem criarPersonagem(const string& nome, const string& classe) {
     p.nome = nome;
     p.classe = classe;
 
+
     if (classe == "Guerreiro") {
         p.vida = 80;
         p.defesa = 10;
         p.level = 1;
     }
-    else if (classe == "Ladr�o") {
+    else if (classe == "Ladr�o") {
         p.vida = 70;
         p.defesa = 3;
         p.level = 1;
@@ -72,8 +74,34 @@ Personagem criarPersonagem(const string& nome, const string& classe) {
         p.defesa = 6;
         p.level = 1;
     }
-    //definirAtaquesPorClasse(p);
+    definirAtaquesPorClasse(p);
     return p;
 }
 
+void definirAtaquesPorClasse(Personagem& p) {
+    if (p.classe == "Guerreiro") {
+        p.ataques["Ataque de espada"] = 30;
+        p.ataques["Golpe pesado"] = 25;
+        p.ataques["Ataque duplo"] = 21;
+    } else if (p.classe == "Mago") {
+        p.ataques["Bola de fogo"] = 25;
+        p.ataques["Raio de energia"] = 20;
+        p.ataques["Repelente magico"] = 15;
+    } else if (p.classe == "Arqueiro") {
+        p.ataques["Flechas flamejantes"] = 20;
+        p.ataques["Chuva de flechas"] = 21;
+        p.ataques["Crítico"] = 28;
+    } else if (p.classe == "Cavaleiro") {
+        p.ataques["Investida frontal"] = 20;
+        p.ataques["Corte vertical"] = 21;
+        p.ataques["O X da Morte"] = 28;
+    } else if (p.classe == "Ladrão") {
+        p.ataques["Roubo de vida"] = 20;
+        p.ataques["Chuva de socos"] = 21;
+        p.ataques["Chute colateral"] = 28;
+    }
+     else {
+        cout << "Classe desconhecida! Não ha ataques definidos." << endl;
+    }
+}
 
