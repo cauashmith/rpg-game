@@ -1,5 +1,6 @@
 #include <iostream>
 #include <random>
+#include <unordered_map>
 using namespace std;
 
 int randomValue();
@@ -32,18 +33,47 @@ struct Monstro {
     int danoMax;
 };
 
+Personagem criarPersonagem(const string& nome, const string& classe);
+
 int main() {
-    int randomV = randomValue();
-    cout << "Numero que caiu no dado: " << randomV << endl;
+
+    cout << "Chamando menu principal.";
     return 0;
+
+
 }
 
-int randomValue() {
-    std::random_device rd;
-    std::mt19937 gen(rd());
-    std::uniform_int_distribution<> dis(0, 10);
+Personagem criarPersonagem(const string& nome, const string& classe) {
+    Personagem p;
+    p.nome = nome;
+    p.classe = classe;
 
-    int random_number = dis(gen);
-
-    return random_number;
+    if (classe == "Guerreiro") {
+        p.vida = 80;
+        p.defesa = 10;
+        p.level = 1;
+    }
+    else if (classe == "Ladrão") {
+        p.vida = 70;
+        p.defesa = 3;
+        p.level = 1;
+    }
+    else if (classe == "Cavaleiro") {
+        p.vida = 85;
+        p.defesa = 15;
+        p.level = 1;
+    }
+    else if (classe == "Mago") {
+        p.vida = 45;
+        p.defesa = 5;
+        p.level = 1;
+    } else if (classe == "Arqueiro") {
+        p.vida = 50;
+        p.defesa = 6;
+        p.level = 1;
+    }
+    //definirAtaquesPorClasse(p);
+    return p;
 }
+
+
